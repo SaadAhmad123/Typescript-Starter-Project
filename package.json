@@ -1,0 +1,22 @@
+{
+  "name": "typescript-starter-project",
+  "description": "This is a starter project template for a typescript project",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx tsc --project tsconfig.prod.json; npx copyfiles -u 1 ./src/**/*.yaml dist/; npx copyfiles -u 1 ./src/**/*.json dist/",
+    "start": "npx ts-node src/index.ts",
+    "test": "jest --passWithNoTests",
+    "format": "npx prettier --write .",
+    "package:azure": "yarn build; bash ./packager.azure.sh -p yarn -d dist; rm -r dist",
+    "package:aws": "yarn build; bash ./packager.aws.sh -p yarn -d dist; rm -r dist"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
