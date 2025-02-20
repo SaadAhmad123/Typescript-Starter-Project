@@ -1,1 +1,5 @@
-console.log("Hello")
+function main() {
+  console.log('Hello World. Saad');
+}
+
+main();

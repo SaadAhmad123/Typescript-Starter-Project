@@ -2,22 +2,32 @@
   "name": "typescript-starter-project",
   "description": "This is a starter project template for a typescript project",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "license": "MIT",
   "scripts": {
-    "build": "npx tsc --project tsconfig.prod.json; npx copyfiles -u 1 ./src/**/*.yaml dist/; npx copyfiles -u 1 ./src/**/*.json dist/",
-    "start": "npx ts-node src/index.ts",
-    "test": "jest --passWithNoTests",
-    "format": "npx prettier --write .",
-    "package:azure": "yarn build; bash ./packager.azure.sh -p yarn -d dist; rm -r dist",
-    "package:aws": "yarn build; bash ./packager.aws.sh -p yarn -d dist; rm -r dist"
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "start": "tsup && node dist/index.cjs",
+    "lint": "biome check --fix",
+    "format": "biome format --fix"
   },
   "devDependencies": {
-    "copyfiles": "^2.4.1",
-    "jest": "^29.7.0",
-    "prettier": "^3.3.3",
-    "ts-jest": "^29.2.3",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "just-install": "^2.0.2",
+    "@biomejs/biome": "1.9.4"
+  },
+  "packageManager": "pnpm@9.15.1",
+  "engines": {
+    "node": ">=19"
   }
 }

@@ -4,8 +4,6 @@ node_modules
 yarn-error.log
 coverage
 .yarnrc.yml
-yarn.lock
-package-lock.json
 .temp
 deployable
 .DS_Store
