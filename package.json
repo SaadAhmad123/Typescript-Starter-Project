@@ -19,15 +19,17 @@
     "format": "biome format --fix"
   },
   "devDependencies": {
-    "tsup": "^8.3.6",
-    "tsx": "^4.19.2",
-    "typescript": "^5.5.4",
-    "ts-node": "^10.9.2",
-    "just-install": "^2.0.2",
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "2.3.7",
+    "@types/node": "24.10.1",
+    "just-install": "2.0.2",
+    "ts-node": "10.9.2",
+    "tsup": "8.5.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vitest": "4.0.13"
   },
   "packageManager": "pnpm@9.15.1",
   "engines": {
-    "node": ">=19"
+    "node": ">=22"
   }
 }
